@@ -7,6 +7,7 @@ import { registerNFT } from "./modules/nft/index.js"
 import { registerTokens } from "./modules/tokens/index.js"
 import { registerTransactions } from "./modules/transactions/index.js"
 import { registerWallet } from "./modules/wallet/index.js"
+import { registerAdvancedTools } from "./tools/register.js"
 
 export function registerEVM(server: McpServer) {
   registerBlocks(server)
@@ -16,4 +17,5 @@ export function registerEVM(server: McpServer) {
   registerTransactions(server)
   registerWallet(server)
   registerNFT(server)
+  registerAdvancedTools(server)
 }

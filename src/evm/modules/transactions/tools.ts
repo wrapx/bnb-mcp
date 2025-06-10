@@ -27,6 +27,26 @@ export function registerTransactionTools(server: McpServer) {
     }
   )
 
+  // Get transaction receipt by hash
+  server.tool(
+    "get_transaction_receipt",
+    "Get the transaction receipt by hash. Includes status, gas used, contract addresses created, and event logs.",
+    {
+      txHash: z
+        .string()
+        .describe("The transaction hash to look up receipt for (e.g., '0x1234...')"),
+      network: defaultNetworkParam
+    },
+    async ({ txHash, network }) => {
+      try {
+        const receipt = await services.getTransactionReceipt(txHash as Hash, network)
+        return mcpToolRes.success(receipt)
+      } catch (error) {
+        return mcpToolRes.error(error, `fetching transaction receipt ${txHash}`)
+      }
+    }
+  )
+
   // Estimate gas
   server.tool(
     "estimate_gas",

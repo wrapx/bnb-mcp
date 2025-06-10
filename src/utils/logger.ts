@@ -1,4 +1,5 @@
 import * as util from "node:util"
+import { getNestedConfigValue } from "../config/index.js"
 
 enum LogLevel {
   DEBUG = 0,
@@ -13,9 +14,8 @@ class Logger {
   private static currentLevel: LogLevel = Logger.getLogLevelFromEnv()
 
   private static getLogLevelFromEnv(): LogLevel {
-    const envLevel = (
-      process.env.LOG_LEVEL || "INFO"
-    ).toUpperCase() as LogLevelStrings
+    const configLevel = getNestedConfigValue('server.logLevel') || "INFO"
+    const envLevel = configLevel.toUpperCase() as LogLevelStrings
     return LogLevel[envLevel] ?? LogLevel.INFO
   }
 

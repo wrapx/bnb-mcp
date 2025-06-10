@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import 'reflect-metadata';
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp"
 
 import { startSSEServer } from "./server/sse"

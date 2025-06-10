@@ -1,11 +1,10 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 
 import { registerEVM } from "@/evm/index.js"
-import { registerGnfd } from "@/gnfd/index.js"
 import Logger from "@/utils/logger.js"
 
 // Create and start the MCP server
-export const startServer = () => {
+export const  startServer = async () => {
   try {
     // Create a new MCP server instance
     const server = new McpServer({
@@ -15,6 +14,7 @@ export const startServer = () => {
 
     // Register all resources, tools, and prompts
     registerEVM(server)
+    const { registerGnfd } = await import("@/gnfd/index.js")
     registerGnfd(server)
     return server
   } catch (error) {

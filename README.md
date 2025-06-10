@@ -125,18 +125,32 @@ git clone https://github.com/bnb-chain/bnbchain-mcp.git
 cd bnbchain-mcp
 ```
 
-2. Set up environment variables:
+2. Set up configuration:
 
+You can configure the server using either environment variables or configuration files.
+
+**Option 1: Environment Variables**
 ```bash
 cp .env.example .env
 ```
 
 Edit `.env` file with your configuration:
-
-- `PRIVATE_KEY`: Your wallet private key (required for transaction operations)
+- `PRIVATE_KEY`: **REQUIRED** Your wallet private key (⚠️ MUST be set via environment variable only, never in config files)
+- `DEFAULT_CHAIN_ID`: Default blockchain network (56=BSC, 97=BSC Testnet, 204=opBNB, 5611=opBNB Testnet)
 - `LOG_LEVEL`: Set logging level (DEBUG, INFO, WARN, ERROR)
 - `PORT`: Server port number (default: 3001)
+- `WRAPX_DEPLOYER_ADDRESS`: WrapX deployer contract address
 
+**⚠️ SECURITY WARNING**: Never store private keys in configuration files or commit them to version control!
+
+**Option 2: Configuration File**
+```bash
+cp config.example.json config.json
+```
+
+Edit `config.json` with your settings. Configuration files take precedence over defaults but environment variables override both.
+
+For detailed configuration options, see [Configuration Guide](./docs/CONFIGURATION.md).
 3. Install dependencies and start development server:
 
 ```bash

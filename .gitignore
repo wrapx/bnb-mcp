@@ -106,6 +106,12 @@ web_modules/
 .env.production.local
 .env.local
 
+# Configuration files (keep example files)
+config.json
+config/
+.config/
+!config.example.json
+
 # parcel-bundler cache (https://parceljs.org/)
 
 .parcel-cache
@@ -175,3 +181,4 @@ dist
 .DS_Store
 
 .cursor/
+.ai

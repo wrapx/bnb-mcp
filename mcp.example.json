@@ -1,0 +1,16 @@
+{
+    "mcpServers": {
+      "bnbchain-mcp": {
+        "command": "npm",
+        "args": [
+          "run",
+          "start",
+          "--prefix",
+          "rootPath/*/bnbchain-mcp"
+        ],
+        "env": {
+          "PRIVATE_KEY": "0x..."
+        }
+      }
+    }
+}

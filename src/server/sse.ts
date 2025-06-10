@@ -6,12 +6,13 @@ import express from "express"
 import type { Request, Response } from "express"
 
 import Logger from "@/utils/logger"
+import { getNestedConfigValue } from "../config/index.js"
 import { startServer } from "./base"
 
 export const startSSEServer = async () => {
   try {
     const app = express()
-    const server = startServer()
+    const server = await startServer()
     app.use(cors())
 
     // Log the current log level on startup
@@ -61,7 +62,7 @@ export const startSSEServer = async () => {
       }
     })
 
-    const PORT = process.env.PORT || 3001
+    const PORT = getNestedConfigValue('server.port') || 3001
     app.listen(PORT, () => {
       Logger.info(
         `BNBChain MCP SSE Server is running on http://localhost:${PORT}`

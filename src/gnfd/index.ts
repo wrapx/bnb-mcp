@@ -1,5 +1,3 @@
-import "reflect-metadata"
-
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp"
 
 import { registerGnfdPrompts } from "./prompts"

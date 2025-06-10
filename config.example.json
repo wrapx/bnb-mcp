@@ -1,0 +1,24 @@
+{
+  "networks": {
+    "default": {
+      "chainId": 56,
+      "name": "BNB Smart Chain"
+    }
+  },
+  "contracts": {
+    "wrapXDeployer": "0x1234567890123456789012345678901234567890"
+  },
+  "security": {
+    "maxGasPrice": "20000000000",
+    "gasLimit": "500000"
+  },
+  "server": {
+    "port": 3001,
+    "logLevel": "INFO"
+  },
+  "api": {
+    "anthropicApiKey": "your-anthropic-api-key",
+    "openaiApiKey": "your-openai-api-key",
+    "deepseekApiKey": "your-deepseek-api-key"
+  }
+} 

@@ -15,8 +15,6 @@ The configuration system follows this priority order (highest to lowest):
 The system will automatically look for configuration files in these locations:
 
 1. `config.json` (project root)
-2. `config/default.json` 
-3. `.config/bnbchain-mcp.json`
 
 ## Default Chain Configuration
 

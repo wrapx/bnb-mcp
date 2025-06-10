@@ -34,38 +34,6 @@ To connect to the MCP server from Cursor:
 3. Click "Add new global MCP server"
 4. Enter the following details:
 
-Default mode
-
-```json
-{
-  "mcpServers": {
-    "bnbchain-mcp": {
-      "command": "npx",
-      "args": ["-y", "@bnb-chain/mcp@latest"],
-      "env": {
-        "PRIVATE_KEY": "your_private_key_here. (optional)"
-      }
-    }
-  }
-}
-```
-
-SSE mode
-
-```json
-{
-  "mcpServers": {
-    "bnbchain-mcp": {
-      "command": "npx",
-      "args": ["-y", "@bnb-chain/mcp@latest", "--sse"],
-      "env": {
-        "PRIVATE_KEY": "your_private_key_here. (optional)"
-      }
-    }
-  }
-}
-```
-
 ## Integration with Claude Desktop
 
 To connect to the MCP server from Claude Desktop:
@@ -77,15 +45,20 @@ To connect to the MCP server from Claude Desktop:
 
 ```json
 {
-  "mcpServers": {
-    "bnbchain-mcp": {
-      "command": "npx",
-      "args": ["-y", "@bnb-chain/mcp@latest"],
-      "env": {
-        "PRIVATE_KEY": "your_private_key_here"
+    "mcpServers": {
+      "bnbchain-mcp": {
+        "command": "npm",
+        "args": [
+          "run",
+          "start",
+          "--prefix",
+          "rootPath/*/bnbchain-mcp"
+        ],
+        "env": {
+          "PRIVATE_KEY": "0x..."
+        }
       }
     }
-  }
 }
 ```
 
